@@ -15,14 +15,14 @@ jobs:
           build: npm run build
 
       - name: List files in the repository
-        run: ls -R # 또는 windows 환경이면 dir /s
+        run: ls # 또는 windows 환경이면 dir /s
 
       - name: Save build folder
         uses: actions/upload-artifact@v4
         with:
           name: build
           if-no-files-found: error
-          path: dist
+          path: .next
   cypress-run:
     runs-on: ubuntu-24.04
     container:
