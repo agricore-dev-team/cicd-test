@@ -16,7 +16,7 @@ function PostListView() {
         <main className="max-w-3xl w-full">
         <h3 className="text-4xl font-bold mb-8">Post List</h3>
         {mockPosts.map((post) => (
-            <article key={post.id} className="mb-6 p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:cursor-pointer hover:bg-gray-100 transition-shadow" onClick={(ev) => handlePostClick(ev, post.id)}>
+            <article key={post.id} id={`post-article-${post.id}`} className="post-article mb-6 p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:cursor-pointer hover:bg-gray-100 transition-shadow" onClick={(ev) => handlePostClick(ev, post.id)}>
                 <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
                 <p className="text-gray-700">{post.subtitle}</p>
             </article>
