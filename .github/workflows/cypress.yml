@@ -1,25 +1,13 @@
 name: Run Cypress Tests
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - develop
+  push:
+    branches:
+      - release
+      - develop
 jobs:
-  install:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Cypress install
-        uses: cypress-io/github-action@v6
-        with:
-          # Disable running of tests within install job
-          runTests: false
-          build: npm run build
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          if-no-files-found: error
-          path: dist
   cypress-run:
     runs-on: ubuntu-24.04
     container:
@@ -28,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
