@@ -1,0 +1,27 @@
+name: Run Cypress Tests in Development Environment
+on:
+  pull_request:
+    branches:
+      - develop
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install Cypress binary
+        run: pnpm cypress install
+      - name: Verify Cypress
+        run: pnpm cypress verify
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: pnpm run build
+          start: pnpm run start
+          browser: firefox

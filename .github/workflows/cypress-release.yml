@@ -1,13 +1,8 @@
-name: Run Cypress Tests
+name: Run Cypress Tests in Release Environment
 on:
   pull_request:
     branches:
-      - develop
       - release
-  push:
-    branches:
-      - release
-
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
