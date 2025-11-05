@@ -20,6 +20,10 @@ jobs:
           version: latest
       - name: Install dependencies
         run: pnpm install
+      - name: Install Cypress binary
+        run: pnpm cypress install
+      - name: Verify Cypress
+        run: pnpm cypress verify
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
