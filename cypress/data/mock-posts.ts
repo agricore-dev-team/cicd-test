@@ -1,11 +1,16 @@
-import { Post } from "../types/post";
+type Post = {
+    id: number;
+    title: string;
+    subtitle: string;
+    content: string;
+};
 
 export const mockPosts: Post[] = [
     {
         id: 1,
         title: "First Post",
         subtitle: "This is the subtitle of the first post.",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
         id: 2,
