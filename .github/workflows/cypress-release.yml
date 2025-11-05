@@ -4,7 +4,7 @@ on:
     branches:
       - release
 jobs:
-  cypress-run:
+  cypress-run-release:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout

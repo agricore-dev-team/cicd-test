@@ -4,7 +4,7 @@ on:
     branches:
       - develop
 jobs:
-  cypress-run:
+  cypress-run-develop:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -22,6 +22,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: pnpm run build
-          start: pnpm run start
+          start: pnpm run dev
           browser: firefox
